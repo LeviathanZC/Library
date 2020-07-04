@@ -25,4 +25,25 @@ public class Book {
         return result;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder("Book {");
+        builder.append("\n\tid = ").append(id);
+        builder.append(";\n\ttitle = ").append(title);
+        builder.append(";\n\tauthors = [");
+        int length = authors.length;
+        final String comma = ", ";
+        for (int i = 0; i < length; i++) {
+            builder.append(authors[i]);
+            if (i < length - 1) {
+                builder.append(comma);
+            }
+        }
+        builder.append("];\n\ttitle = ").append(title);
+        builder.append(";\n\tpublisher = ").append(publisher);
+        builder.append(";\n}");
+        return builder.toString();
+    }
+
+
 }
