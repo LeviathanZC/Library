@@ -36,15 +36,7 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public static int getCount() {
-        return count;
-    }
-
-    public static void setCount(int count) {
-        Book.count = count;
-    }
-
-    public int getId() {
+    public int getID() {
         return id;
     }
 
