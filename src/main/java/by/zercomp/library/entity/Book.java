@@ -9,7 +9,6 @@ public class Book {
     private String[] authors;
     private String publisher;
 
-
     public Book() {
         this("");
     }
