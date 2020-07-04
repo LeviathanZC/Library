@@ -29,7 +29,7 @@ public class BookListDAO implements BookDAO {
     }
 
     @Override
-    public void deleteBook(int id) {
+    public void removeBook(int id) {
 
     }
 
