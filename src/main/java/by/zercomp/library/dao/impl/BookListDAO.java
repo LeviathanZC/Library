@@ -14,7 +14,7 @@ public class BookListDAO implements BookDAO {
     }
 
     @Override
-    public Book getBook(int id) {
+    public Book findBookById(int id) {
         return null;
     }
 

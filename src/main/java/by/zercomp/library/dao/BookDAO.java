@@ -10,7 +10,10 @@ public interface BookDAO {
     void add(Book book);
 
     //read
-    Book getBook(int id);
+    Book findBookById(int id);
+    Book findBookByTitle(String title);
+    List<Book> findBooksByPublisher(String publisher);
+    List<Book> findBooksByAuthor(String author);
 
     List<Book> getAll();
 
@@ -21,5 +24,7 @@ public interface BookDAO {
     void deleteBook(int id);
 
     void delete(Book book);
+
+
 
 }
