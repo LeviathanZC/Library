@@ -1,36 +1,36 @@
 package by.zercomp.library.model.entity;
 
-public class Book {
+import java.util.UUID;
 
-    private static int count = 0;
+public class Book {
 
     private int id;
     private String title;
     private String[] authors;
     private String publisher;
 
-    public Book() {
-        this("");
+    public Book(int id) {
+        this(id, "");
     }
 
-    public Book(String title) {
-        this(title, "");
+    public Book(int id, String title) {
+        this(id, title, "");
     }
 
-    public Book(String[] authors) {
-        this("", authors);
+    public Book(int id, String[] authors) {
+        this(id, "", authors);
     }
 
-    public Book(String title, String publisher) {
-        this(title, new String[0], publisher);
+    public Book(int id, String title, String publisher) {
+        this(id, title, new String[0], publisher);
     }
 
-    public Book(String title, String[] authors) {
-        this(title, authors, "");
+    public Book(int id, String title, String[] authors) {
+        this(id, title, authors, "");
     }
 
-    public Book(String title, String[] authors, String publisher) {
-        this.id = count++;
+    public Book(int id, String title, String[] authors, String publisher) {
+        this.id = id;
         this.title = title;
         this.authors = authors;
         this.publisher = publisher;
