@@ -1,6 +1,6 @@
-package by.zercomp.library.service;
+package by.zercomp.library.model.service;
 
-import by.zercomp.library.entity.Book;
+import by.zercomp.library.model.entity.Book;
 
 import java.util.List;
 

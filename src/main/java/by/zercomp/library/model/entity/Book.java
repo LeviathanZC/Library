@@ -1,4 +1,4 @@
-package by.zercomp.library.entity;
+package by.zercomp.library.model.entity;
 
 public class Book {
 

@@ -1,7 +1,7 @@
-package by.zercomp.library.factory;
+package by.zercomp.library.model.factory;
 
-import by.zercomp.library.dao.BookDAO;
-import by.zercomp.library.dao.impl.BookListDAO;
+import by.zercomp.library.model.dao.BookDAO;
+import by.zercomp.library.model.dao.impl.BookListDAO;
 
 public final class DAOFactory {
     private static final DAOFactory instance = new DAOFactory();

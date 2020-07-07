@@ -1,8 +1,8 @@
-package by.zercomp.library.dao.impl;
+package by.zercomp.library.model.dao.impl;
 
-import by.zercomp.library.dao.BookDAO;
-import by.zercomp.library.entity.Book;
-import by.zercomp.library.enumeration.BookTag;
+import by.zercomp.library.model.dao.BookDAO;
+import by.zercomp.library.model.entity.Book;
+import by.zercomp.library.model.type.BookTag;
 
 import java.util.List;
 

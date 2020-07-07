@@ -1,6 +1,6 @@
-package by.zercomp.library.repository;
+package by.zercomp.library.model.repository;
 
-import by.zercomp.library.entity.Book;
+import by.zercomp.library.model.entity.Book;
 
 import java.util.ArrayList;
 import java.util.List;

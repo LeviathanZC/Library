@@ -1,4 +1,4 @@
-package by.zercomp.library.enumeration;
+package by.zercomp.library.model.type;
 
 public enum BookTag {
 
