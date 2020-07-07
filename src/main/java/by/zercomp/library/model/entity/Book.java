@@ -1,7 +1,5 @@
 package by.zercomp.library.model.entity;
 
-import java.util.UUID;
-
 public class Book {
 
     private int id;
