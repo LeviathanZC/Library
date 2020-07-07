@@ -11,12 +11,8 @@ public interface BookDAO {
     void add(Book book);
 
     //read
-    Book findBookById(int id);
-    Book findBookByTitle(String title);
-    List<Book> findBooksByPublisher(String publisher);
-    List<Book> findBooksByAuthor(String author);
+    Book findBookByTag(BookTag tag);
     List<Book> getAll();
-    
     List<Book> sortBooksByTag(BookTag tag);
 
     //update

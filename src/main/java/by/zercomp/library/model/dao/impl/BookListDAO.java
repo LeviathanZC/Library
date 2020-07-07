@@ -15,22 +15,7 @@ public class BookListDAO implements BookDAO {
     }
 
     @Override
-    public Book findBookById(int id) {
-        return null;
-    }
-
-    @Override
-    public Book findBookByTitle(String title) {
-        return null;
-    }
-
-    @Override
-    public List<Book> findBooksByPublisher(String publisher) {
-        return null;
-    }
-
-    @Override
-    public List<Book> findBooksByAuthor(String author) {
+    public Book findBookByTag(BookTag tag) {
         return null;
     }
 
@@ -43,6 +28,7 @@ public class BookListDAO implements BookDAO {
     public List<Book> sortBooksByTag(BookTag tag) {
         return null;
     }
+
 
     @Override
     public void update(Book book) {
