@@ -1,4 +1,4 @@
-package by.zercomp.library.model.dao;
+package by.zercomp.library.model.dal;
 
 import by.zercomp.library.model.entity.Book;
 import by.zercomp.library.model.type.BookTag;
@@ -22,7 +22,5 @@ public interface BookDAO {
     void removeBook(int id);
 
     void remove(Book book);
-
-
 
 }
