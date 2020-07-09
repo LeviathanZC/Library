@@ -1,4 +1,4 @@
-package by.zercomp.library.view;
+package by.zercomp.library.view.impl;
 
 public class MenuView {
 
