@@ -7,27 +7,6 @@ public class Book {
     private String[] authors;
     private String publisher;
 
-
-    public Book(int id) {
-        this(id, "");
-    }
-
-    public Book(int id, String title) {
-        this(id, title, "");
-    }
-
-    public Book(int id, String[] authors) {
-        this(id, "", authors);
-    }
-
-    public Book(int id, String title, String publisher) {
-        this(id, title, new String[0], publisher);
-    }
-
-    public Book(int id, String title, String[] authors) {
-        this(id, title, authors, "");
-    }
-
     public Book(int id, String title, String[] authors, String publisher) {
         this.id = id;
         this.title = title;
