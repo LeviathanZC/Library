@@ -18,7 +18,8 @@ public class BookListDAO implements BookDAO {
 
     @Override
     public Book findBookById(int id) throws DAOException {
-        for (Book item : BookRepository.getInstance().getDataContext()) {
+        List<Book> searchList = BookRepository.getInstance().getDataContext();
+        for (Book item : searchList) {
             if (item.getID() == id) {
                 return item;
             }
@@ -29,7 +30,8 @@ public class BookListDAO implements BookDAO {
     @Override
     public List<Book> findBooksByPublisher(String publisher) {
         List<Book> response = new ArrayList<>();
-        for (Book item : BookRepository.getInstance().getDataContext()) {
+        List<Book> searchList = BookRepository.getInstance().getDataContext();
+        for (Book item : searchList) {
             if (item.getPublisher().equals(publisher)) {
                 response.add(item);
             }
@@ -39,7 +41,14 @@ public class BookListDAO implements BookDAO {
 
     @Override
     public List<Book> findBooksByTitle(String title) {
-        return null;
+        List<Book> response = new ArrayList<>();
+        List<Book> searchList = BookRepository.getInstance().getDataContext();
+        for (Book item: searchList) {
+            if(title.equals(item.getTitle())) {
+                response.add(item);
+            }
+        }
+        return response;
     }
 
     @Override
