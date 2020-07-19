@@ -6,6 +6,7 @@ import by.zercomp.library.model.entity.Book;
 import by.zercomp.library.model.exception.DAOException;
 import by.zercomp.library.model.type.BookTag;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookListDAO implements BookDAO {
@@ -18,7 +19,7 @@ public class BookListDAO implements BookDAO {
     @Override
     public Book findBookById(int id) throws DAOException {
         for (Book item : BookRepository.getInstance().getDataContext()) {
-            if(item.getID() == id) {
+            if (item.getID() == id) {
                 return item;
             }
         }
@@ -27,7 +28,13 @@ public class BookListDAO implements BookDAO {
 
     @Override
     public List<Book> findBooksByPublisher(String publisher) {
-        return null;
+        List<Book> response = new ArrayList<>();
+        for (Book item : BookRepository.getInstance().getDataContext()) {
+            if (item.getPublisher().equals(publisher)) {
+                response.add(item);
+            }
+        }
+        return response;
     }
 
     @Override
