@@ -23,8 +23,7 @@ public class BookListDAO implements BookDAO {
 
     @Override
     public List<Book> getAll() {
-        // TODO: 8.07.20 implement getAll
-        return null;
+        return BookRepository.getInstance().getDataContext();
     }
 
     @Override
