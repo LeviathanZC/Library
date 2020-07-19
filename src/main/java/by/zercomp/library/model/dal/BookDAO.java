@@ -12,7 +12,11 @@ public interface BookDAO {
     void add(Book book);
 
     //read
-    Book findBookByTag(BookTag tag);
+    Book findBookById(int id);
+    List<Book> findBookByPublisher(String publisher);
+    List<Book> findBookByTitle(String title);
+    List<Book> findBookByAuthor(String author);
+
     List<Book> getAll();
     List<Book> sortBooksByTag(BookTag tag);
     
@@ -20,7 +24,6 @@ public interface BookDAO {
     void update(Book book);
 
     //delete
-
     void remove(Book book) throws DAOException;
 
 }

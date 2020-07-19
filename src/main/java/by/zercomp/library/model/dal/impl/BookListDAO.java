@@ -16,9 +16,25 @@ public class BookListDAO implements BookDAO {
     }
 
     @Override
-    public Book findBookByTag(BookTag tag) {
-        // TODO: 8.07.20 implement findBookByTag
+    public Book findBookById(int id) {
+
         return null;
+    }
+
+    @Override
+    public List<Book> findBookByPublisher(String publisher) {
+        return null;
+    }
+
+    @Override
+    public List<Book> findBookByTitle(String title) {
+        return null;
+    }
+
+    @Override
+    public List<Book> findBookByAuthor(String author) {
+
+
     }
 
     @Override
