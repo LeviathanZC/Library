@@ -12,10 +12,10 @@ public interface BookDAO {
     void add(Book book);
 
     //read
-    Book findBookById(int id);
-    List<Book> findBookByPublisher(String publisher);
-    List<Book> findBookByTitle(String title);
-    List<Book> findBookByAuthor(String author);
+    Book findBookById(int id) throws DAOException;
+    List<Book> findBooksByPublisher(String publisher);
+    List<Book> findBooksByTitle(String title);
+    List<Book> findBooksByAuthor(String author);
 
     List<Book> getAll();
     List<Book> sortBooksByTag(BookTag tag);

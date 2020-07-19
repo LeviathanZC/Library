@@ -16,25 +16,28 @@ public class BookListDAO implements BookDAO {
     }
 
     @Override
-    public Book findBookById(int id) {
+    public Book findBookById(int id) throws DAOException {
+        for (Book item : BookRepository.getInstance().getDataContext()) {
+            if(item.getID() == id) {
+                return item;
+            }
+        }
+        throw new DAOException();
+    }
 
+    @Override
+    public List<Book> findBooksByPublisher(String publisher) {
         return null;
     }
 
     @Override
-    public List<Book> findBookByPublisher(String publisher) {
+    public List<Book> findBooksByTitle(String title) {
         return null;
     }
 
     @Override
-    public List<Book> findBookByTitle(String title) {
+    public List<Book> findBooksByAuthor(String author) {
         return null;
-    }
-
-    @Override
-    public List<Book> findBookByAuthor(String author) {
-
-
     }
 
     @Override
