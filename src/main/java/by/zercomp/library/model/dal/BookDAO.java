@@ -19,9 +19,6 @@ public interface BookDAO {
 
     List<Book> getAll();
     List<Book> sortBooksByTag(BookTag tag);
-    
-    //update
-    void update(Book book);
 
     //delete
     void remove(Book book) throws DAOException;

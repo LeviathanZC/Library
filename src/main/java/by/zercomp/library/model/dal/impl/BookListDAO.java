@@ -18,7 +18,7 @@ public class BookListDAO implements BookDAO {
 
     @Override
     public Book findBookById(int id) throws DAOException {
-        List<Book> searchList = BookRepository.getInstance().getDataContext();
+        List<Book> searchList = getAll();
         for (Book item : searchList) {
             if (item.getID() == id) {
                 return item;
@@ -30,7 +30,7 @@ public class BookListDAO implements BookDAO {
     @Override
     public List<Book> findBooksByPublisher(String publisher) {
         List<Book> response = new ArrayList<>();
-        List<Book> searchList = BookRepository.getInstance().getDataContext();
+        List<Book> searchList = getAll();
         for (Book item : searchList) {
             if (item.getPublisher().equals(publisher)) {
                 response.add(item);
@@ -42,7 +42,7 @@ public class BookListDAO implements BookDAO {
     @Override
     public List<Book> findBooksByTitle(String title) {
         List<Book> response = new ArrayList<>();
-        List<Book> searchList = BookRepository.getInstance().getDataContext();
+        List<Book> searchList = getAll();
         for (Book item : searchList) {
             if (title.equals(item.getTitle())) {
                 response.add(item);
@@ -54,7 +54,7 @@ public class BookListDAO implements BookDAO {
     @Override
     public List<Book> findBooksByAuthor(String author) {
         List<Book> responce = new ArrayList<>();
-        List<Book> searchList = BookRepository.getInstance().getDataContext();
+        List<Book> searchList = getAll();
         for (Book item : searchList) {
             for (String target : item.getAuthors()) {
                 if(author.equals(target)) {
@@ -74,12 +74,6 @@ public class BookListDAO implements BookDAO {
     public List<Book> sortBooksByTag(BookTag tag) {
         // TODO: 8.07.20 implement sortBooksByTag
         return null;
-    }
-
-
-    @Override
-    public void update(Book book) {
-        // TODO: 8.07.20 implement updateBook
     }
 
     @Override
