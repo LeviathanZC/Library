@@ -9,7 +9,7 @@ public interface LibraryService {
 
     void addNewBook(Book book);
     Book findBookById(int id);
-    List<Book> findAllBooks();
+    List<Book> getAllBooks();
     List<Book> findBookByTag(BookTag tag);
     void replaceBook(Book book);
     void removeBook(Book book);

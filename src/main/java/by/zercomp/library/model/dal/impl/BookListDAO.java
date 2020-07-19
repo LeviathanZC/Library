@@ -1,15 +1,13 @@
 package by.zercomp.library.model.dal.impl;
 
 import by.zercomp.library.model.dal.BookDAO;
+import by.zercomp.library.model.dal.repository.BookRepository;
 import by.zercomp.library.model.entity.Book;
 import by.zercomp.library.model.type.BookTag;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BookListDAO implements BookDAO {
-
-    private List<Book> bookList = new ArrayList<>();
 
     @Override
     public void add(Book book) {
@@ -47,6 +45,10 @@ public class BookListDAO implements BookDAO {
 
     @Override
     public void remove(Book book) {
+        BookRepository repo = BookRepository.getInstance();
+        List<Book> books = repo.getDataContext();
+
+
         // TODO: 8.07.20 implement removeBook
     }
 }

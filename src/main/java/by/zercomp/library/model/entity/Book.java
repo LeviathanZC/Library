@@ -14,6 +14,13 @@ public class Book {
         this.publisher = publisher;
     }
 
+    public Book(String title, String[] authors, String publisher) {
+        //let iud be 0 for CommandPattern
+        this.title = title;
+        this.authors = authors;
+        this.publisher = publisher;
+    }
+
     public int getID() {
         return id;
     }
