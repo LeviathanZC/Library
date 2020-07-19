@@ -3,6 +3,7 @@ package by.zercomp.library.model.dal.impl;
 import by.zercomp.library.model.dal.BookDAO;
 import by.zercomp.library.model.dal.repository.BookRepository;
 import by.zercomp.library.model.entity.Book;
+import by.zercomp.library.model.exception.DAOException;
 import by.zercomp.library.model.type.BookTag;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public class BookListDAO implements BookDAO {
 
     @Override
     public void add(Book book) {
-        // TODO: 8.07.20 implement addBook
+        BookRepository.getInstance().getDataContext().add(book);
     }
 
     @Override
@@ -39,16 +40,18 @@ public class BookListDAO implements BookDAO {
     }
 
     @Override
-    public void removeBook(int id) {
-        // TODO: 8.07.20 implement removeBookById
-    }
-
-    @Override
-    public void remove(Book book) {
+    public void remove(Book book) throws DAOException {
         BookRepository repo = BookRepository.getInstance();
         List<Book> books = repo.getDataContext();
-
-
-        // TODO: 8.07.20 implement removeBook
+        boolean find = false;
+        for (Book item : books) {
+            if (item.equals(book)) {
+                find = true;
+            }
+        }
+        if (find == false) {
+            throw new DAOException();
+        }
+        repo.remove(book);
     }
 }

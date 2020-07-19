@@ -32,6 +32,13 @@ public class BookRepository {
         return Collections.unmodifiableList(dataContext);
     }
 
+    /**
+     * Add book to the dataContext;
+     * Automatically set id for each book;
+     * If dataContext is empty - it will defined ID equal "1" to the book;
+     * If it is not - last book index from context + 1;
+     * @param book - book
+     */
     public void add(Book book) {
         if(dataContext.isEmpty()) {
             book.setId(1);
