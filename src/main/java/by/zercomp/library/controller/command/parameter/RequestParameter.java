@@ -1,4 +1,4 @@
-package by.zercomp.library.controller.command;
+package by.zercomp.library.controller.command.parameter;
 
 public class RequestParameter {
 
