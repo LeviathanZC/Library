@@ -1,6 +1,7 @@
 package by.zercomp.library.model.entity;
 
-public class  BookDTO {
+@Deprecated
+public class BookDTO {
 
     public int id;
     public String title;

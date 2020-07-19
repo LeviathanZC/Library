@@ -6,6 +6,7 @@ import by.zercomp.library.model.exception.InvalidModelException;
 
 import static by.zercomp.library.model.creator.BookCreator.getInstance;
 
+@Deprecated
 public class BookDTOConverter implements Converter<BookDTO, Book> {
 
     @Override
@@ -29,7 +30,7 @@ public class BookDTOConverter implements Converter<BookDTO, Book> {
         } catch (InvalidModelException ignore) {
 
         }
-        return ;
+        return null;
     }
 
 
