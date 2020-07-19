@@ -43,8 +43,8 @@ public class BookListDAO implements BookDAO {
     public List<Book> findBooksByTitle(String title) {
         List<Book> response = new ArrayList<>();
         List<Book> searchList = BookRepository.getInstance().getDataContext();
-        for (Book item: searchList) {
-            if(title.equals(item.getTitle())) {
+        for (Book item : searchList) {
+            if (title.equals(item.getTitle())) {
                 response.add(item);
             }
         }
@@ -53,7 +53,16 @@ public class BookListDAO implements BookDAO {
 
     @Override
     public List<Book> findBooksByAuthor(String author) {
-        return null;
+        List<Book> responce = new ArrayList<>();
+        List<Book> searchList = BookRepository.getInstance().getDataContext();
+        for (Book item : searchList) {
+            for (String target : item.getAuthors()) {
+                if(author.equals(target)) {
+                    responce.add(item);
+                }
+            }
+        }
+        return responce;
     }
 
     @Override
