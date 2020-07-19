@@ -7,13 +7,13 @@ import java.util.List;
 
 public interface LibraryService {
 
-    void addNewBook(Book book);
+    void addNew(Book book);
     Book findBookById(int id);
+    List<Book> findBookByPublisher(String publisher);
+    List<Book> findBookByTitle(String title);
+    List<Book> findBookByAuthor(String author);
     List<Book> getAllBooks();
     List<Book> findBookByTag(BookTag tag);
-    void replaceBook(Book book);
-    void removeBook(Book book);
-    void removeBookAtId(int id);
-    void removeAllBooks();
+    void remove(Book book);
 
 }
