@@ -14,17 +14,13 @@ public class HibernateSessionFactoryUtil {
     private HibernateSessionFactoryUtil() {
     }
 
-    public static SessionFactory getSessionFactory() throws InvalidModelException {
+    public static SessionFactory getSessionFactory() throws HibernateException {
         if (sessionFactory == null) {
-            try {
-                Configuration configuration = new Configuration().configure();
-                configuration.addAnnotatedClass(Book.class);
-                StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
-                        applySettings(configuration.getProperties());
-                sessionFactory = configuration.buildSessionFactory(builder.build());
-            } catch (HibernateException e) {
-                throw new InvalidModelException(e);
-            }
+            Configuration configuration = new Configuration().configure();
+            configuration.addAnnotatedClass(Book.class);
+            StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().
+                    applySettings(configuration.getProperties());
+            sessionFactory = configuration.buildSessionFactory(builder.build());
         }
         return sessionFactory;
     }
