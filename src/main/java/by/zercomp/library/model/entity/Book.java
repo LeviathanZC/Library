@@ -1,7 +1,13 @@
 package by.zercomp.library.model.entity;
 
-public class Book {
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "books")
+public class Book {
+    @Id
     private int id;
     private String title;
     private String[] authors;
