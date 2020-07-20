@@ -10,9 +10,9 @@ public interface LibraryService {
 
     void addNew(Book book) throws InvalidModelException;
     Book findBookById(int id) throws InvalidModelException;
-    List<Book> findBookByPublisher(String publisher);
-    List<Book> findBookByTitle(String title);
-    List<Book> findBookByAuthor(String author);
+    List<Book> findBookByPublisher(String publisher) throws InvalidModelException;
+    List<Book> findBookByTitle(String title) throws InvalidModelException;
+    List<Book> findBookByAuthor(String author) throws InvalidModelException;
     List<Book> getAllBooks();
     List<Book> sortBooksBy(BookTag tag);
     void remove(Book book);

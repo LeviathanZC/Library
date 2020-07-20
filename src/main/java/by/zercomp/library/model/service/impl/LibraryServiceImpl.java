@@ -41,33 +41,44 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
     @Override
-    public List<Book> findBookByPublisher(String publisher) {
-        return null;
+    public List<Book> findBookByPublisher(String publisher) throws InvalidModelException {
+        if (publisher == null) {
+            throw new InvalidModelException("\"publisher\" must be not null");
+        }
+        return dao.findBooksByPublisher(publisher);
     }
 
     @Override
-    public List<Book> findBookByTitle(String title) {
-        return null;
+    public List<Book> findBookByTitle(String title) throws InvalidModelException {
+        if (title == null) {
+            throw new InvalidModelException("\"title\" must be not null");
+        }
+        return dao.findBooksByTitle(title);
     }
 
     @Override
-    public List<Book> findBookByAuthor(String author) {
-        return null;
+    public List<Book> findBookByAuthor(String author) throws InvalidModelException {
+        if (author == null) {
+            throw new InvalidModelException("\"author\" must be non null");
+        }
+        return dao.findBooksByAuthor(author);
     }
 
     @Override
     public List<Book> getAllBooks() {
+        // TODO: 20.07.20  
         return null;
     }
 
     @Override
     public List<Book> sortBooksBy(BookTag tag) {
         return null;
+        // TODO: 20.07.20  
     }
 
     @Override
     public void remove(Book book) {
-
+        // TODO: 20.07.20  
     }
 
 
