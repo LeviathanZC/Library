@@ -9,7 +9,7 @@ import java.util.List;
 public interface LibraryService {
 
     void addNew(Book book) throws InvalidModelException;
-    Book findBookById(int id);
+    Book findBookById(int id) throws InvalidModelException;
     List<Book> findBookByPublisher(String publisher);
     List<Book> findBookByTitle(String title);
     List<Book> findBookByAuthor(String author);
