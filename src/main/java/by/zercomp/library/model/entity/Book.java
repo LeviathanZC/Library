@@ -3,6 +3,7 @@ package by.zercomp.library.model.entity;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "books")
@@ -10,17 +11,17 @@ public class Book {
     @Id
     private int id;
     private String title;
-    private String[] authors;
+    private List<String> authors;
     private String publisher;
 
-    public Book(int id, String title, String[] authors, String publisher) {
+    public Book(int id, String title, List<String> authors, String publisher) {
         this.id = id;
         this.title = title;
         this.authors = authors;
         this.publisher = publisher;
     }
 
-    public Book(String title, String[] authors, String publisher) {
+    public Book(String title, List<String> authors, String publisher) {
         //let iud be 0 for CommandPattern
         this.title = title;
         this.authors = authors;
@@ -43,11 +44,11 @@ public class Book {
         this.title = title;
     }
 
-    public String[] getAuthors() {
+    public List<String> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(String[] authors) {
+    public void setAuthors(List<String> authors) {
         this.authors = authors;
     }
 
@@ -68,13 +69,13 @@ public class Book {
             return false;
         }
         Book other = (Book) o;
-        final String[] otherAuthors = other.getAuthors();
-        final int length = otherAuthors.length;
-        if (length != this.authors.length) {
+        final List<String> otherAuthors = other.getAuthors();
+        final int length = otherAuthors.size();
+        if (length != this.authors.size()) {
             return false;
         }
         for (int i = 0; i < length; i++) {
-            if (!this.authors[i].equals(otherAuthors[i])) {
+            if (!this.authors.get(i).equals(otherAuthors.get(i))) {
                 return false;
             }
         }
@@ -99,10 +100,10 @@ public class Book {
         builder.append("\n\tid = ").append(id);
         builder.append(";\n\ttitle = ").append(title);
         builder.append(";\n\tauthors = [");
-        int length = authors.length;
+        int length = authors.size();
         final String comma = ", ";
         for (int i = 0; i < length; i++) {
-            builder.append(authors[i]);
+            builder.append(authors.get(i));
             if (i < length - 1) {
                 builder.append(comma);
             }

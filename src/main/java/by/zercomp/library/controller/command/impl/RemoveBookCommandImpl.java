@@ -7,6 +7,8 @@ import by.zercomp.library.model.entity.Book;
 import by.zercomp.library.model.exception.InvalidModelException;
 import by.zercomp.library.model.service.impl.LibraryServiceImpl;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +19,7 @@ public class RemoveBookCommandImpl implements Command {
         Book book = new Book(
                 (int) params.get(RequestParameter.ID),
                 (String) params.get(RequestParameter.TITLE),
-                (String[]) params.get(RequestParameter.AUTHORS),
+                Arrays.asList((String[]) params.get(RequestParameter.AUTHORS)),
                 (String) params.get(RequestParameter.PUBLISHER)
         );
         try {

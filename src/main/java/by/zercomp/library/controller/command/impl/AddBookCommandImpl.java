@@ -7,7 +7,9 @@ import by.zercomp.library.model.entity.Book;
 import by.zercomp.library.model.exception.InvalidModelException;
 import by.zercomp.library.model.service.impl.LibraryServiceImpl;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AddBookCommandImpl implements Command {
@@ -16,7 +18,7 @@ public class AddBookCommandImpl implements Command {
         Map<String, Object> response = new HashMap<>();
         Book book = new Book(
                 (String) params.get(RequestParameter.TITLE),
-                (String[]) params.get(RequestParameter.AUTHORS),
+                Arrays.asList((String[]) params.get(RequestParameter.AUTHORS)),
                 (String) params.get(RequestParameter.PUBLISHER)
         );
         try {
