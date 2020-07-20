@@ -9,10 +9,10 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SQLBookDAO implements BookDAO {
-
 
 
     public void add(Book book) throws DAOException {
@@ -32,7 +32,14 @@ public class SQLBookDAO implements BookDAO {
     }
 
     public List<Book> findBooksByPublisher(String publisher) {
-        return null;
+        List<Book> response = new ArrayList<>();
+        List<Book> all = this.getAll();
+        for (Book item : all) {
+            if(publisher.equals(item.getPublisher())) {
+                response.add(item);
+            }
+        }
+        return response;
     }
 
     public List<Book> findBooksByTitle(String title) {
