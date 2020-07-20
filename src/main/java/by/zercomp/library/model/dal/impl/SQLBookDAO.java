@@ -35,7 +35,7 @@ public class SQLBookDAO implements BookDAO {
         List<Book> response = new ArrayList<>();
         List<Book> all = this.getAll();
         for (Book item : all) {
-            if(publisher.equals(item.getPublisher())) {
+            if (publisher.equals(item.getPublisher())) {
                 response.add(item);
             }
         }
@@ -43,7 +43,14 @@ public class SQLBookDAO implements BookDAO {
     }
 
     public List<Book> findBooksByTitle(String title) {
-        return null;
+        List<Book> response = new ArrayList<>();
+        List<Book> all = this.getAll();
+        for (Book item : all) {
+            if (title.equals(item.getTitle())) {
+                response.add(item);
+            }
+        }
+        return response;
     }
 
     public List<Book> findBooksByAuthor(String author) {
