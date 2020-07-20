@@ -44,7 +44,12 @@ public class SQLBookDAO implements BookDAO {
     }
 
     public List<Book> getAll() {
-        return null;
+        List<Book> books = (List<Book>) HibernateSessionFactoryUtil
+                .getSessionFactory()
+                .openSession()
+                .createQuery("From Book")
+                .list();
+        return books;
     }
 
     public List<Book> sortBooksByTag(BookTag tag) throws DAOException {
