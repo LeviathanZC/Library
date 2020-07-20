@@ -10,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SQLBookDAO implements BookDAO {
@@ -58,15 +59,16 @@ public class SQLBookDAO implements BookDAO {
     }
 
     public List<Book> getAll() {
-        List<Book> books = (List<Book>) HibernateSessionFactoryUtil
+        List<Book> books = Collections.unmodifiableList((List<Book>) HibernateSessionFactoryUtil
                 .getSessionFactory()
                 .openSession()
                 .createQuery("From Book")
-                .list();
+                .list());
         return books;
     }
 
     public List<Book> sortBooksByTag(BookTag tag) throws DAOException {
+        //stub
         return null;
     }
 

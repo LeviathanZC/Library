@@ -29,7 +29,11 @@ public class LibraryServiceImpl implements LibraryService {
         if (book == null) {
             throw new InvalidModelException();
         }
-        dao.add(book);
+        try {
+            dao.add(book);
+        } catch (DAOException e) {
+            throw new InvalidModelException(e);
+        }
     }
 
     @Override
