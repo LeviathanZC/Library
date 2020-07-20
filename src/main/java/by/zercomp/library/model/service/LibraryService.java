@@ -13,7 +13,7 @@ public interface LibraryService {
     List<Book> findBookByTitle(String title);
     List<Book> findBookByAuthor(String author);
     List<Book> getAllBooks();
-    List<Book> findBookByTag(BookTag tag);
+    List<Book> sortBooksBy(BookTag tag);
     void remove(Book book);
 
 }

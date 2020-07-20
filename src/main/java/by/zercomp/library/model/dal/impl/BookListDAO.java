@@ -7,6 +7,7 @@ import by.zercomp.library.model.exception.DAOException;
 import by.zercomp.library.model.type.BookTag;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class BookListDAO implements BookDAO {
@@ -71,12 +72,6 @@ public class BookListDAO implements BookDAO {
     }
 
     @Override
-    public List<Book> sortBooksByTag(BookTag tag) {
-        // TODO: 8.07.20 implement sortBooksByTag
-        return null;
-    }
-
-    @Override
     public void remove(Book book) throws DAOException {
         BookRepository repo = BookRepository.getInstance();
         List<Book> books = repo.getDataContext();
@@ -90,5 +85,34 @@ public class BookListDAO implements BookDAO {
             throw new DAOException();
         }
         repo.remove(book);
+    }
+
+    /*
+        Попытка использовать Stream API для ускорения разработки :D
+
+     */
+    @Override
+    public List<Book> sortBooksByTag(BookTag tag) throws DAOException {
+        List<Book> sorting = BookRepository.getInstance().getDataContext();
+        switch (tag) {
+            case ID : {
+                return (List<Book>) sorting.stream().sorted(Comparator.comparingInt(Book::getID));
+            }
+            case TITLE: {
+                return (List<Book>) sorting.stream().sorted(Comparator.comparing(Book::getTitle));
+            }
+            /*
+            TODO: разобраться с использованием стримов.
+            case AUTHOR: {
+                return sorting.stream().sorted(Comparator.comparing(Book::getAuthors));
+            }
+            */
+            case PUBLISHER: {
+                return (List<Book>) sorting.stream().sorted(Comparator.comparing(Book::getPublisher));
+            }
+            default: {
+                throw new DAOException("Unsupported operation");
+            }
+        }
     }
 }

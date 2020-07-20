@@ -18,7 +18,7 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
     @Override
-    public void addNewBook(Book book) {
+    public void addNew(Book book) {
 
     }
 
@@ -28,32 +28,32 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
     @Override
+    public List<Book> findBookByPublisher(String publisher) {
+        return null;
+    }
+
+    @Override
+    public List<Book> findBookByTitle(String title) {
+        return null;
+    }
+
+    @Override
+    public List<Book> findBookByAuthor(String author) {
+        return null;
+    }
+
+    @Override
     public List<Book> getAllBooks() {
         return null;
     }
 
     @Override
-    public List<Book> findBookByTag(BookTag tag) {
+    public List<Book> sortBooksBy(BookTag tag) {
         return null;
     }
 
     @Override
-    public void replaceBook(Book book) {
-
-    }
-
-    @Override
-    public void removeBook(Book book) {
-
-    }
-
-    @Override
-    public void removeBookAtId(int id) {
-
-    }
-
-    @Override
-    public void removeAllBooks() {
+    public void remove(Book book) {
 
     }
 

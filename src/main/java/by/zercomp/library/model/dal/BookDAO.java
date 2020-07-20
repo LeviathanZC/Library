@@ -18,7 +18,7 @@ public interface BookDAO {
     List<Book> findBooksByAuthor(String author);
 
     List<Book> getAll();
-    List<Book> sortBooksByTag(BookTag tag);
+    List<Book> sortBooksByTag(BookTag tag) throws DAOException;
 
     //delete
     void remove(Book book) throws DAOException;
