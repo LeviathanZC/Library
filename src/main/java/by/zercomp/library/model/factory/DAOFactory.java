@@ -17,6 +17,8 @@ public final class DAOFactory {
         return instance;
     }
 
+    //for new dao need to add enum DAOType with enumeration of the DAOs
+    //and refactor this method
     public BookDAO getBookListDao() {
         return bookListImpl;
     }
