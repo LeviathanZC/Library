@@ -57,6 +57,10 @@ public class SQLBookDAO implements BookDAO {
     }
 
     public void remove(Book book) {
-
+        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+        Transaction transaction = session.beginTransaction();
+        session.delete(book);
+        transaction.commit();
+        session.close();
     }
 }
