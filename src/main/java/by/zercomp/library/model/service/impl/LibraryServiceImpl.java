@@ -66,19 +66,27 @@ public class LibraryServiceImpl implements LibraryService {
 
     @Override
     public List<Book> getAllBooks() {
-        // TODO: 20.07.20  
-        return null;
+        return dao.getAll();
     }
 
     @Override
-    public List<Book> sortBooksBy(BookTag tag) {
-        return null;
-        // TODO: 20.07.20  
+    public List<Book> sortBooksBy(BookTag tag) throws InvalidModelException {
+        if (tag == null) {
+            throw new InvalidModelException("\"tag\" must be not null");
+        }
+        try {
+            return dao.sortBooksByTag(tag);
+        } catch (DAOException ex) {
+            throw new InvalidModelException(ex);
+        }
     }
 
     @Override
-    public void remove(Book book) {
-        // TODO: 20.07.20  
+    public void remove(Book book) throws InvalidModelException {
+        if (book == null) {
+            throw new InvalidModelException("\"book\" must be not null");
+        }
+        dao.remove(book);
     }
 
 

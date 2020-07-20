@@ -14,7 +14,7 @@ public interface LibraryService {
     List<Book> findBookByTitle(String title) throws InvalidModelException;
     List<Book> findBookByAuthor(String author) throws InvalidModelException;
     List<Book> getAllBooks();
-    List<Book> sortBooksBy(BookTag tag);
-    void remove(Book book);
+    List<Book> sortBooksBy(BookTag tag) throws InvalidModelException;
+    void remove(Book book) throws InvalidModelException;
 
 }

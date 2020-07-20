@@ -72,18 +72,8 @@ public class BookListDAO implements BookDAO {
     }
 
     @Override
-    public void remove(Book book) throws DAOException {
+    public void remove(Book book) {
         BookRepository repo = BookRepository.getInstance();
-        List<Book> books = repo.getDataContext();
-        boolean find = false;
-        for (Book item : books) {
-            if (item.equals(book)) {
-                find = true;
-            }
-        }
-        if (find == false) {
-            throw new DAOException();
-        }
         repo.remove(book);
     }
 
