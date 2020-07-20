@@ -5,6 +5,7 @@ import by.zercomp.library.model.dal.impl.BookListDAO;
 import by.zercomp.library.model.entity.Book;
 import by.zercomp.library.model.exception.DAOException;
 import by.zercomp.library.model.exception.InvalidModelException;
+import by.zercomp.library.model.factory.DAOFactory;
 import by.zercomp.library.model.service.LibraryService;
 import by.zercomp.library.model.type.BookTag;
 
@@ -21,7 +22,7 @@ public class LibraryServiceImpl implements LibraryService {
         return service;
     }
 
-    private final BookDAO dao = new BookListDAO();
+    private final BookDAO dao = DAOFactory.getInstance().getBookListDao();
 
     @Override
     public void addNew(Book book) throws InvalidModelException {

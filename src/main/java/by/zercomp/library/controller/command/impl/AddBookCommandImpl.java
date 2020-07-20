@@ -2,7 +2,6 @@ package by.zercomp.library.controller.command.impl;
 
 import by.zercomp.library.controller.command.Command;
 import by.zercomp.library.controller.command.parameter.RequestParameter;
-import by.zercomp.library.model.creator.BookCreator;
 import by.zercomp.library.model.entity.Book;
 
 import java.util.HashMap;
@@ -17,6 +16,6 @@ public class AddBookCommandImpl implements Command {
                 (String[]) params.get(RequestParameter.AUTHORS),
                 (String) params.get(RequestParameter.PUBLISHER)
         );
-        
+
     }
 }

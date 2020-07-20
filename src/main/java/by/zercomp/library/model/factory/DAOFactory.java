@@ -10,6 +10,8 @@ public final class DAOFactory {
     }
 
     private final BookDAO bookListImpl = new BookListDAO();
+    //one more pf BookDAO jsonDAOImpl .. or
+    //one more pf BookDAO sqlDAOImpl ...
 
     public static DAOFactory getInstance() {
         return instance;
