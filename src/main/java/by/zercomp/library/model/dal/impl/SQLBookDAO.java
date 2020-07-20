@@ -5,7 +5,9 @@ import by.zercomp.library.model.entity.Book;
 import by.zercomp.library.model.exception.DAOException;
 import by.zercomp.library.model.factory.HibernateSessionFactoryUtil;
 import by.zercomp.library.model.type.BookTag;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.List;
 
@@ -13,12 +15,20 @@ public class SQLBookDAO implements BookDAO {
 
 
 
-    public void add(Book book) {
-        Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+    public void add(Book book) throws DAOException {
+        try {
+            Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
+            Transaction transaction = session.beginTransaction();
+            session.save(book);
+            transaction.commit();
+            session.close();
+        } catch (HibernateException ex) {
+            throw new DAOException(ex);
+        }
     }
 
     public Book findBookById(int id) throws DAOException {
-        return null;
+        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(Book.class, id);
     }
 
     public List<Book> findBooksByPublisher(String publisher) {

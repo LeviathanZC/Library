@@ -9,7 +9,7 @@ import java.util.List;
 public interface BookDAO {
 
     //create
-    void add(Book book);
+    void add(Book book) throws DAOException;
 
     //read
     Book findBookById(int id) throws DAOException;
